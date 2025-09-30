@@ -1,5 +1,5 @@
 a = int(input())
 b = int(input())
 
-result = [a, b][a <= b]
+result = [a, b][a <= b] # Проверка , если a <= b - то это b - это максимум и он записывается в переменную result , если нет то записывается a.
 print (result)
