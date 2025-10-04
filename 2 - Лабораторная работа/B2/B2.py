@@ -33,7 +33,7 @@ def solve(filename: str):
     # средняя скорректированная температура
     avg_wc = sum(wc_temps) / len(wc_temps)
 
-    # формируем строки отчёта
+    # создаю отчет
     output_lines = []
     output_lines.append("Time     WC temp     WC Effect")
     output_lines.append("------------------------------")
@@ -55,7 +55,6 @@ def solve(filename: str):
             f.write(line + "\n")
 
 
-# пример запуска
 if __name__ == "__main__":
     files = ["1.WCData.txt", "2.WCData.txt", "3.WCData.txt"]
     for fname in files:
