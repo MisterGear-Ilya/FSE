@@ -1,0 +1,14 @@
+Dwight Barnette
+Simple Map Distance Computations
+
+Map Scale Factor:    0.25 miles per inch
+
+      Map       Mileage
+      Measure   Distance
+============================================================
+#  1    1.5       0.4
+#  2    2.3       0.6
+#  3    5.9       1.5
+#  4    4.0       1.0
+============================================================
+Total Distance:    3.5 miles
