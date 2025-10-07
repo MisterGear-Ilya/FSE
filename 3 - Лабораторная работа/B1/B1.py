@@ -40,7 +40,6 @@ def solve(filename: str):
             if mouse[0] == '?':
                 mouse = [wrap(x,n), wrap(y,m)]
             else:
-                # суммарное расстояние по ходу: |dx| + |dy|
                 dist_mouse += abs(x) + abs(y)
                 mouse = [wrap(mouse[0] + x, n), wrap(mouse[1] + y, m)]
 
