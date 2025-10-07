@@ -3,6 +3,7 @@ from math import *
 
 def wrap(val, size):
     return ((val - 1) % size) + 1
+    
 
 
 def solve(filename: str):
