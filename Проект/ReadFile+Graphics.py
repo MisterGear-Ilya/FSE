@@ -6,7 +6,7 @@ import numpy as np
 from matplotlib import rcParams
 import warnings
 
-warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore') # Библиотеки для чеков сбоя
 
 # Настройка стиля для красивых графиков
 plt.style.use('seaborn-v0_8')
@@ -541,3 +541,140 @@ def read_with_pagination(file_path, rows_per_page=20, cols_per_page=10):
 # Запуск основной функции
 if __name__ == "__main__":
     read()
+
+
+"""
+Matplotlib
+
+plt.figure() - создает новую фигуру
+
+plt.plot() - линейные графики
+
+plt.bar(), plt.barh() - столбчатые диаграммы
+
+plt.pie() - круговые диаграммы
+
+plt.scatter() - точечные диаграммы
+
+plt.title(), plt.xlabel(), plt.ylabel() - заголовки и подписи
+
+plt.legend() - легенда
+
+plt.grid() - сетка
+
+plt.show() - отображение графика
+
+
+
+Seaborn
+
+sns.heatmap() - тепловые карты
+
+sns.boxplot() - ящики с усами
+
+sns.violinplot() - скрипичные диаграммы
+
+sns.pairplot() - матрицы scatter plot
+
+NumPy
+
+create_heatmap() - Тепловая карта Функция
+
+def create_heatmap(data, industry_names):
+    plt.figure(figsize=(16, 12))
+    plot_data = data.iloc[:20, :20]  # Берем первые 20 строк и столбцов
+    
+    sns.heatmap(plot_data, 
+                annot=False,           # Не показывать числа в ячейках
+                cmap='YlOrRd',         # Цветовая схема (желтый-оранжевый-красный)
+                xticklabels=False,     # Не показывать подписи X
+                yticklabels=plot_names,# Подписи Y (названия отраслей)
+                cbar_kws={'label': 'Коэффициент затрат'})  # Настройка цветовой шкалы
+
+annot=True/False - показывать ли числа в ячейках
+
+cmap - цветовая палитра ('viridis', 'plasma', 'coolwarm', 'YlOrRd')
+
+fmt='.2f' - формат чисел при annot=True
+
+linewidths=0.5 - ширина линий между ячейками
+
+          
+create_bar_chart() - Столбчатая диаграмма
+
+def create_bar_chart(data, industry_names):
+    total_coefficients = data.sum(axis=1)  # Суммируем по строкам
+    top_15 = total_coefficients.nlargest(15)  # Топ-15 отраслей
+    
+    bars = plt.barh(range(len(top_15)), top_15.values, 
+                   color='steelblue', alpha=0.7)
+
+data.sum(axis=1) - суммирует все коэффициенты для каждой отрасли
+
+nlargest(15) - находит 15 наибольших значений
+
+plt.barh() - создает горизонтальные столбцы
+
+color='steelblue' - цвет столбцов
+
+alpha=0.7 - прозрачность
+
+Параметры bar chart:
+
+orientation='vertical'/'horizontal' - ориентация
+
+edgecolor='black' - цвет границ
+
+linewidth=1 - толщина границ
+
+create_pie_chart() - Круговая диаграмма
+
+def create_pie_chart(data, industry_names):
+    total_coefficients = data.sum(axis=1)
+    top_8 = total_coefficients.nlargest(8)
+    
+    wedges, texts, autotexts = plt.pie(sizes, labels=labels, 
+                                      autopct='%1.1f%%', startangle=90)
+                                      
+Разбивает общую сумму на сектора
+
+Каждый сектор представляет долю одной отрасли
+
+autopct='%1.1f%%' - автоматически показывает проценты
+
+startangle=90 - начальный угол (12 часов)
+
+Параметры pie chart:
+
+explode=[0.1, 0, 0, 0] - выдвигает сектора
+
+shadow=True - добавляет тень
+
+colors - список цветов для секторов
+
+def create_line_chart(data, industry_names):
+    for i, idx in enumerate(selected_indices):
+        coefficients = data.iloc[idx, :20]
+        plt.plot(range(len(coefficients)), coefficients.values, 
+                marker='o', linewidth=2, markersize=6, label=selected_industries[i])
+                
+Рисует линии для нескольких отраслей
+
+Каждая точка - значение коэффициента
+
+marker='o' - маркеры в виде кружков
+
+linewidth=2 - толщина линии
+
+Параметры line chart:
+
+linestyle='--' - стиль линии (сплошная, пунктир и т.д.)
+
+marker='s' - форма маркера (квадрат, треугольник и т.д.)
+
+color='red' - цвет линии
+
+ create_box_plot() - Ящик с усами
+def create_box_plot(data):
+    sns.boxplot(data=plot_data, palette='viridis')
+"""
