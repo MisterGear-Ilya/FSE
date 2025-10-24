@@ -216,10 +216,10 @@ def read_with_pagination(file_path, rows_per_page=20, cols_per_page=10):
 
 # Запуск основной функции
 if __name__ == "__main__":
-   # read()
+   read()
    # data = read_input_output_table(file_path)
-    data = pd.read_excel(file_path, sheet_name='Коэффициенты', header=None)
-    print('Файлы прочитаны из excel!',sep='',end='\n\n')
+ #   data = pd.read_excel(file_path, sheet_name='Коэффициенты', header=None)
+ #   print('Файлы прочитаны из excel!',sep='',end='\n\n')
 
 
 
